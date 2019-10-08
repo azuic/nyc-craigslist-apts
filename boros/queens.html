@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src='https://cdn.bootcss.com/echarts/3.7.2/echarts.simple.js'></script>
+        <script src='../dist/echarts-wordcloud.js'></script>
+    </head>
+    <body>
+        <style>
+            html, body, #main {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+        </style>
+        <div id='main'></div>
+        <script>
+            var chart = echarts.init(document.getElementById('main'));
+
+            var data = [{"name": "Canvas", "value": 65}, {"name": "Monitor", "value": 35}, {"name": "Housing", "value": 83}, {"name": "Sky", "value": 83}, {"name": "Interior Design", "value": 67}, {"name": "Tarmac", "value": 15}, {"name": "Electrical Device", "value": 4}, {"name": "Pump", "value": 52}, {"name": "Vehicle", "value": 3}, {"name": "Gate", "value": 72}, {"name": "Waiting Room", "value": 79}, {"name": "Document", "value": 84}, {"name": "Spoke", "value": 41}, {"name": "Urban", "value": 36}, {"name": "Metropolis", "value": 6}, {"name": "Grass", "value": 11}, {"name": "Banister", "value": 57}, {"name": "Golf Club", "value": 39}, {"name": "Shelf", "value": 4}, {"name": "Gym", "value": 84}, {"name": "Cabinet", "value": 33}, {"name": "Suburb", "value": 62}, {"name": "Hot Tub", "value": 57}, {"name": "Lighting", "value": 80}, {"name": "Sliding Door", "value": 64}, {"name": "Cottage", "value": 57}, {"name": "Path", "value": 65}, {"name": "Pool", "value": 35}, {"name": "Furniture", "value": 83}, {"name": "Building", "value": 11}, {"name": "Billiard Room", "value": 41}, {"name": "Hearth", "value": 67}, {"name": "Yard", "value": 14}, {"name": "Restaurant", "value": 16}, {"name": "Car", "value": 11}, {"name": "Shower Faucet", "value": 25}, {"name": "Planter", "value": 16}, {"name": "Gas Pump", "value": 27}, {"name": "Sedan", "value": 54}, {"name": "Fitness", "value": 83}, {"name": "Golf", "value": 29}, {"name": "Bathtub", "value": 55}, {"name": "Tub", "value": 72}, {"name": "Penthouse", "value": 79}, {"name": "Art", "value": 84}, {"name": "Walk-In Closet", "value": 41}, {"name": "Cooktop", "value": 46}, {"name": "Attic", "value": 42}, {"name": "Crib", "value": 7}, {"name": "Clinic", "value": 35}, {"name": "Chandelier", "value": 24}, {"name": "Motorcycle", "value": 57}, {"name": "Oven", "value": 84}, {"name": "Text", "value": 33}, {"name": "Corner", "value": 61}, {"name": "Arch", "value": 80}, {"name": "Sport", "value": 64}, {"name": "Pillow", "value": 57}, {"name": "Skyscraper", "value": 65}, {"name": "Table Lamp", "value": 35}, {"name": "Entertainment Center", "value": 83}, {"name": "Living Room", "value": 11}, {"name": "Glass", "value": 41}, {"name": "Solar Panels", "value": 67}, {"name": "Sports", "value": 14}, {"name": "Airfield", "value": 16}, {"name": "Outer Space", "value": 11}, {"name": "Dining Room", "value": 25}, {"name": "Mural", "value": 16}, {"name": "Passport", "value": 27}, {"name": "Curtain", "value": 54}, {"name": "Id Cards", "value": 83}, {"name": "Washer", "value": 29}, {"name": "Bar Stool", "value": 55}, {"name": "Dresser", "value": 72}, {"name": "Door", "value": 79}, {"name": "Loft", "value": 84}, {"name": "Staircase", "value": 41}, {"name": "Shelter", "value": 46}, {"name": "Train", "value": 42}, {"name": "Working Out", "value": 7}, {"name": "Park", "value": 35}, {"name": "Rug", "value": 24}, {"name": "Vase", "value": 57}, {"name": "Downtown", "value": 84}, {"name": "Panoramic", "value": 33}, {"name": "Train Station", "value": 61}, {"name": "Exercise", "value": 80}, {"name": "Light", "value": 64}, {"name": "Wardrobe", "value": 57}, {"name": "Condo", "value": 65}, {"name": "Astronomy", "value": 35}, {"name": "Jar", "value": 83}, {"name": "Kitchen", "value": 11}, {"name": "Town", "value": 41}, {"name": "Bonsai", "value": 67}, {"name": "Arched", "value": 14}, {"name": "Flare", "value": 16}, {"name": "High Rise", "value": 11}, {"name": "Tree", "value": 25}, {"name": "Planet", "value": 16}, {"name": "Locker", "value": 27}, {"name": "Architecture", "value": 54}, {"name": "Reception", "value": 83}, {"name": "Outdoors", "value": 29}, {"name": "Dorm Room", "value": 55}, {"name": "Light Fixture", "value": 72}, {"name": "Slope", "value": 79}, {"name": "Toilet", "value": 84}, {"name": "Subway", "value": 41}, {"name": "Neighborhood", "value": 46}, {"name": "People", "value": 42}, {"name": "Hardwood", "value": 7}, {"name": "Dryer", "value": 35}, {"name": "Stove", "value": 24}, {"name": "Porch", "value": 57}, {"name": "Home Decor", "value": 84}, {"name": "Reception Room", "value": 33}, {"name": "Computer", "value": 61}, {"name": "Human", "value": 80}, {"name": "Bedroom", "value": 64}, {"name": "Ottoman", "value": 57}, {"name": "Chair", "value": 65}, {"name": "Screen", "value": 35}, {"name": "Hostel", "value": 83}, {"name": "Sideboard", "value": 11}, {"name": "Toy", "value": 41}, {"name": "Ceiling Fan", "value": 67}, {"name": "Closet", "value": 14}, {"name": "Plot", "value": 16}, {"name": "Beverage", "value": 11}, {"name": "Stained Wood", "value": 25}, {"name": "Label", "value": 16}, {"name": "Oars", "value": 27}, {"name": "Parking Lot", "value": 54}, {"name": "Lamp", "value": 83}, {"name": "Stereo", "value": 29}, {"name": "Skylight", "value": 55}, {"name": "Corridor", "value": 72}, {"name": "Floor Plan", "value": 79}, {"name": "Tile", "value": 84}, {"name": "Mountain Bike", "value": 41}, {"name": "Brick", "value": 46}, {"name": "Swimming Pool", "value": 42}, {"name": "Vegetation", "value": 7}, {"name": "Picture Window", "value": 35}, {"name": "Transportation", "value": 24}, {"name": "Nature", "value": 57}, {"name": "Slate", "value": 84}, {"name": "Hotel", "value": 33}, {"name": "Dressing Room", "value": 61}, {"name": "Bookcase", "value": 80}, {"name": "Plan", "value": 65}, {"name": "Statue", "value": 35}, {"name": "Walkway", "value": 83}, {"name": "Air Conditioner", "value": 83}, {"name": "Tablecloth", "value": 67}, {"name": "Fireplace", "value": 15}, {"name": "Refrigerator", "value": 4}, {"name": "Sink", "value": 52}, {"name": "Lawn", "value": 3}, {"name": "Cushion", "value": 72}, {"name": "Office Building", "value": 79}, {"name": "Appliance", "value": 84}, {"name": "Bed", "value": 41}, {"name": "Swing", "value": 36}, {"name": "Person", "value": 6}, {"name": "Cupboard", "value": 11}, {"name": "Elevator", "value": 57}, {"name": "Wedding Gown", "value": 39}, {"name": "Awning", "value": 4}, {"name": "Canopy", "value": 84}, {"name": "Mattress", "value": 33}, {"name": "Sculpture", "value": 62}, {"name": "Road", "value": 57}, {"name": "Terminal", "value": 80}, {"name": "Bicycle", "value": 4}, {"name": "Quilt", "value": 64}, {"name": "Dining Table", "value": 53}, {"name": "Wall", "value": 57}, {"name": "House", "value": 65}, {"name": "Bush", "value": 35}, {"name": "Burner", "value": 83}, {"name": "Utility Pole", "value": 31}, {"name": "Bike", "value": 37}, {"name": "College", "value": 26}, {"name": "Jacuzzi", "value": 4}, {"name": "Computer Keyboard", "value": 4}, {"name": "Shower Curtain", "value": 67}, {"name": "Balcony", "value": 14}, {"name": "City", "value": 4}, {"name": "Bathroom", "value": 4}, {"name": "Flooring", "value": 1}, {"name": "Floor", "value": 16}, {"name": "Automobile", "value": 8}, {"name": "Basement", "value": 4}, {"name": "Microwave", "value": 1}, {"name": "Couch", "value": 2}, {"name": "Machine", "value": 44}, {"name": "Window", "value": 9}, {"name": "Wood", "value": 42}, {"name": "Plywood", "value": 4}, {"name": "Electronics", "value": 54}, {"name": "Window Shade", "value": 83}, {"name": "Dishwasher", "value": 7}, {"name": "Wheel", "value": 4}, {"name": "Sink Faucet", "value": 29}, {"name": "Plant", "value": 3}, {"name": "Laundry", "value": 1}, {"name": "Garden", "value": 11}, {"name": "Paper", "value": 30}, {"name": "TV", "value": 40}, {"name": "Drink", "value": 80}, {"name": "Concrete", "value": 79}, {"name": "Diagram", "value": 1}, {"name": "Herbs", "value": 7}, {"name": "Indoors", "value": 84}, {"name": "Kitchen Island", "value": 1}, {"name": "Desk", "value": 13}, {"name": "Ticket", "value": 3}, {"name": "Lobby", "value": 36}, {"name": "Terrace", "value": 1}, {"name": "Pottery", "value": 31}, {"name": "Room", "value": 44}, {"name": "Apartment Building", "value": 34}, {"name": "Water", "value": 14}, {"name": "Roof", "value": 1}, {"name": "Shower", "value": 11}, {"name": "Linen", "value": 25}, {"name": "Airport", "value": 30}, {"name": "Coffee Table", "value": 55}, {"name": "Gas Stove", "value": 7}, {"name": "Potted Plant", "value": 15}, {"name": "Page", "value": 30}, {"name": "Patio", "value": 61}, {"name": "Bridge", "value": 2}, {"name": "Blanket", "value": 10}, {"name": "Analog Clock", "value": 5}, {"name": "Handrail", "value": 2}, {"name": "Campus", "value": 2}, {"name": "Pool Table", "value": 39}, {"name": "Drawer", "value": 1}, {"name": "Street", "value": 1}, {"name": "Tabletop", "value": 1}, {"name": "Railing", "value": 84}, {"name": "Mansion", "value": 38}, {"name": "Table", "value": 1}, {"name": "LCD Screen", "value": 46}]
+
+            var maskImage = new Image();
+
+            var option = {
+                series: [ {
+                    type: 'wordCloud',
+                    sizeRange: [1, 100],
+                    rotationRange: [-90, 90],
+                    rotationStep: 45,
+                    gridSize: 2,
+                    shape: 'pentagon',
+                    maskImage: maskImage,
+                    drawOutOfBound: false,
+                    textStyle: {
+                        normal: {
+                            color: function () {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                            }
+                        },
+                        emphasis: {
+                            itemStyle:{
+                              opacity:0.5
+                            }
+
+                        }
+                    },
+                    data: data
+                } ]
+            };
+
+            maskImage.onload = function () {
+                option.series[0].maskImage
+                chart.setOption(option);
+            }
+
+            maskImage.src = './Queens.png';
+
+            window.onresize = function () {
+                chart.resize();
+            }
+
+        </script>
+    </body>
+</html>

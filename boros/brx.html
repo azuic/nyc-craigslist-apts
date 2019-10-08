@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src='https://cdn.bootcss.com/echarts/3.7.2/echarts.simple.js'></script>
+        <script src='../dist/echarts-wordcloud.js'></script>
+    </head>
+    <body>
+        <style>
+            html, body, #main {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+        </style>
+        <div id='main'></div>
+        <script>
+            var chart = echarts.init(document.getElementById('main'));
+
+            var data = [{"name": "Monitor", "value": 2}, {"name": "Alphabet", "value": 5}, {"name": "Housing", "value": 1}, {"name": "Woodland", "value": 2}, {"name": "Rug", "value": 2}, {"name": "Vehicle", "value": 5}, {"name": "Bird", "value": 4}, {"name": "Urban", "value": 1}, {"name": "Bathtub", "value": 2}, {"name": "Dorm Room", "value": 1}, {"name": "Destroyer", "value": 5}, {"name": "Shelf", "value": 1}, {"name": "Blanket", "value": 2}, {"name": "Cabinet", "value": 1}, {"name": "Lighting", "value": 1}, {"name": "Sink", "value": 2}, {"name": "Cottage", "value": 2}, {"name": "Furniture", "value": 1}, {"name": "Building", "value": 1}, {"name": "Yard", "value": 2}, {"name": "Car", "value": 5}, {"name": "Fitness", "value": 2}, {"name": "Military", "value": 1}, {"name": "Grass", "value": 2}, {"name": "Tub", "value": 5}, {"name": "Attic", "value": 3}, {"name": "Battleship", "value": 1}, {"name": "Oven", "value": 3}, {"name": "House", "value": 1}, {"name": "Corner", "value": 2}, {"name": "Sport", "value": 3}, {"name": "Pillow", "value": 4}, {"name": "Table Lamp", "value": 5}, {"name": "Living Room", "value": 1}, {"name": "Animal", "value": 1}, {"name": "Number", "value": 5}, {"name": "Dining Room", "value": 1}, {"name": "Dresser", "value": 1}, {"name": "Head", "value": 2}, {"name": "Door", "value": 3}, {"name": "Loft", "value": 2}, {"name": "Staircase", "value": 2}, {"name": "Working Out", "value": 2}, {"name": "Interior Design", "value": 2}, {"name": "Banister", "value": 2}, {"name": "Exercise", "value": 1}, {"name": "Condo", "value": 2}, {"name": "Kitchen", "value": 2}, {"name": "Word", "value": 2}, {"name": "High Rise", "value": 5}, {"name": "Tree", "value": 2}, {"name": "Siding", "value": 5}, {"name": "Stained Wood", "value": 5}, {"name": "Cupboard", "value": 2}, {"name": "Toilet", "value": 4}, {"name": "Neighborhood", "value": 4}, {"name": "Cruiser", "value": 5}, {"name": "People", "value": 3}, {"name": "Hardwood", "value": 5}, {"name": "Home Decor", "value": 5}, {"name": "Driving License", "value": 5}, {"name": "Paper", "value": 5}, {"name": "Sunrise", "value": 5}, {"name": "Human", "value": 4}, {"name": "Bedroom", "value": 5}, {"name": "Navy", "value": 5}, {"name": "Chair", "value": 2}, {"name": "Gym", "value": 5}, {"name": "Sideboard", "value": 2}, {"name": "Closet", "value": 5}, {"name": "Outdoors", "value": 4}, {"name": "Lamp", "value": 1}, {"name": "Watercraft", "value": 1}, {"name": "Corridor", "value": 3}, {"name": "Curtain", "value": 5}, {"name": "Brick", "value": 5}, {"name": "Vegetation", "value": 5}, {"name": "Transportation", "value": 1}, {"name": "Nature", "value": 1}, {"name": "Symbol", "value": 2}, {"name": "Hotel", "value": 5}, {"name": "Dryer", "value": 1}, {"name": "Cushion", "value": 1}, {"name": "Refrigerator", "value": 5}, {"name": "Lawn", "value": 4}, {"name": "Appliance", "value": 2}, {"name": "Bed", "value": 4}, {"name": "Face", "value": 2}, {"name": "Person", "value": 5}, {"name": "Sports", "value": 5}, {"name": "Sliding Door", "value": 2}, {"name": "Dining Table", "value": 5}, {"name": "Text", "value": 2}, {"name": "Window", "value": 1}, {"name": "Clock Tower", "value": 5}, {"name": "Shower Curtain", "value": 3}, {"name": "Balcony", "value": 4}, {"name": "City", "value": 4}, {"name": "Bathroom", "value": 1}, {"name": "Flooring", "value": 2}, {"name": "Floor", "value": 5}, {"name": "Screen", "value": 1}, {"name": "Cross", "value": 1}, {"name": "Microwave", "value": 5}, {"name": "Couch", "value": 5}, {"name": "Bush", "value": 1}, {"name": "Wood", "value": 4}, {"name": "Plywood", "value": 1}, {"name": "Window Shade", "value": 1}, {"name": "Dishwasher", "value": 1}, {"name": "Plant", "value": 2}, {"name": "Laundry", "value": 2}, {"name": "Flyer", "value": 5}, {"name": "Brochure", "value": 1}, {"name": "Room", "value": 2}, {"name": "Apartment Building", "value": 2}, {"name": "Mirror", "value": 1}, {"name": "Shower", "value": 1}, {"name": "Page", "value": 2}, {"name": "Bridge", "value": 1}, {"name": "Handrail", "value": 1}, {"name": "Indoors", "value": 2}, {"name": "Tabletop", "value": 2}, {"name": "Table", "value": 1}, {"name": "Ship", "value": 2}, {"name": "Fisheye", "value": 1}]
+
+            var maskImage = new Image();
+
+            var option = {
+                series: [ {
+                    type: 'wordCloud',
+                    sizeRange: [1, 100],
+                    rotationRange: [-90, 90],
+                    rotationStep: 45,
+                    gridSize: 2,
+                    shape: 'pentagon',
+                    maskImage: maskImage,
+                    drawOutOfBound: false,
+                    textStyle: {
+                        normal: {
+                            color: function () {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                            }
+                        },
+                        emphasis: {
+                            itemStyle:{
+                              opacity:0.5
+                            }
+
+                        }
+                    },
+                    data: data
+                } ]
+            };
+
+            maskImage.onload = function () {
+                option.series[0].maskImage
+                chart.setOption(option);
+            }
+
+            maskImage.src = './Bronx.png';
+
+            window.onresize = function () {
+                chart.resize();
+            }
+
+        </script>
+    </body>
+</html>
